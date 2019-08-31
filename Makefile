@@ -11,4 +11,4 @@ repl:
 lox:
 	java com/ryanjsiemens/lox/Lox $(SCRIPT)
 
-.PHONY: lox lox-script
+.PHONY: repl lox
