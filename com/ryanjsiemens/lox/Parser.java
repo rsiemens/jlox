@@ -35,7 +35,7 @@ import static com.ryanjsiemens.lox.TokenType.*;
 // multiplication → unary ( ( "/" | "*" ) unary )* ;
 // unary          → ( "!" | "-" ) unary | call ;
 // call           → primary ( "(" arguments? ")" | "." IDENTIFIER )* ;
-// primary        → NUMBER | STRING | "false" | "true" | "nil" | "(" expression ")" | IDENTIFIER ;
+// primary        → NUMBER | STRING | "false" | "true" | "nil" | "this" | "(" expression ")" | IDENTIFIER ;
 class Parser {
     private static class ParseError extends RuntimeException {}
 
@@ -390,6 +390,8 @@ class Parser {
         if (match(NUMBER, STRING)) {
             return new Expr.Literal(previous().literal);
         }
+
+        if (match(THIS)) return new Expr.This(previous());
 
         if (match(IDENTIFIER)) {
             return new Expr.Variable(previous());
