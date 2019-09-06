@@ -36,10 +36,17 @@ public class Lox {
     private static void runPrompt() throws IOException {
         InputStreamReader input = new InputStreamReader(System.in);
         BufferedReader reader = new BufferedReader(input);
+        String source = "";
+        String line;
 
         while (true) {
             System.out.print("> ");
-            run(reader.readLine());
+            while (!(line = reader.readLine()).isEmpty()) {
+                System.out.print("> ");
+                source += line;
+            }
+            run(source);
+            source = "";
             hadError = false;
         }
     }
