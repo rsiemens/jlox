@@ -2,6 +2,8 @@
 
 Java implementation of the lox language from [Crafting Interpreters](https://craftinginterpreters.com/contents.html).
 
+## Overview
+
 Lox is a dynamic language featuring:
 
 - control flow
@@ -47,3 +49,11 @@ class C < B {}
 
 C().test();  // prints "A method"
 ```
+
+## Building
+
+`make generate && make build`
+
+## Running
+
+`make lox` to start the REPL or `make lox SCRIPT=PATH_TO_LOX_FILE` to run a script.
