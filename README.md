@@ -52,7 +52,7 @@ C().test();  // prints "A method"
 
 ## Building
 
-`make generate && make build`
+`make build`
 
 ## Running
 
